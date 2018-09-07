@@ -244,7 +244,7 @@
             },
             {
               "value": "proxy",
-              "label": "Proxy"
+              "label": "Proxy (HA only)"
             },
             {
               "value": "worker",
@@ -322,29 +322,6 @@
         "group_name": "generalvmtemplate"
       },
       {
-        "name": "worker_enable_glusterFS",
-        "description": "Enable / Disable the installation of Gluster File System in  IBM Cloud Private Installation",
-        "default": "true",
-        "type": "string",
-        "required": true,
-        "secured": false,
-        "label": "Enable IBM Cloud Private GlusterFS on worker Nodes",
-        "hidden": true,
-        "immutable": false,
-        "options": [
-            {
-              "value": "true",
-              "label": "true",
-              "default": true
-            },
-            {
-              "value": "false",
-              "label": "false"
-            }
-          ],
-        "group_name": "newnode"
-      },
-      {
         "name": "worker_hostname_ip",
         "default": {
           "Enter Hostname": "0.0.0.0"
@@ -412,6 +389,29 @@
             "label": "false"
           }
         ],
+        "group_name": "newnode"
+      },
+      {
+        "name": "worker_enable_glusterFS",
+        "description": "Enable / Disable the installation of Gluster File System on new Worker Nodes",
+        "default": "true",
+        "type": "string",
+        "required": true,
+        "secured": false,
+        "label": "Enable IBM Cloud Private GlusterFS on new Worker Nodes",
+        "hidden": false,
+        "immutable": false,
+        "options": [
+            {
+              "value": "true",
+              "label": "true",
+              "default": true
+            },
+            {
+              "value": "false",
+              "label": "false"
+            }
+          ],
         "group_name": "newnode"
       },
       {
