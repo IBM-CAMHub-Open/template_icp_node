@@ -78,30 +78,6 @@ variable "boot_vm_ipv4_address" {
   type = "string"
 }
 
-#----------- NFS ---------------
-variable "nfs_server_vm_ipv4_address" {
-  type = "list"
-}
-
-variable "nfs_server_folder" {
-  type    = "string"
-  default = "/var/nfs"
-}
-
-variable "nfs_server_mount_point" {
-  type    = "string"
-  default = "/mnt/nfs"
-}
-
-variable "master_nfs_folders" {
-  type = "list"
-}
-
-variable "enable_nfs" {
-  type    = "string"
-  default = "false"
-}
-
 #--------- GlusterFS ------------
 variable "worker_enable_glusterFS" {
   type    = "string"

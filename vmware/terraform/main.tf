@@ -118,28 +118,6 @@ module "push_hostfile" {
   dependsOn            = "${module.icp_prereqs.dependsOn}"
 }
 
-module "NFSClient-Setup" {
-  source               = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.2//config_nfs_client"
-  vm_ipv4_address_list = "${list(var.master_vm_ipv4_address)}"
-  vm_os_private_key    = "${length(var.icp_private_ssh_key) == 0 ? "${tls_private_key.generate.private_key_pem}" : "${var.icp_private_ssh_key}"}"
-  vm_os_user           = "${var.vm_os_user}"
-  vm_os_password       = "${var.vm_os_password}"
-  nfs_server           = "${var.nfs_server_vm_ipv4_address}"
-  nfs_folder           = "${var.nfs_server_folder}"
-  nfs_mount_point      = "${var.nfs_server_mount_point}"
-  nfs_link_folders     = "${join(",", var.master_nfs_folders)}"
-  enable_nfs           = "${var.enable_nfs}"
-  #######
-  bastion_host               = "${var.bastion_host}"
-  bastion_user               = "${var.bastion_user}"
-  bastion_private_key        = "${var.bastion_private_key}"
-  bastion_port               = "${var.bastion_port}"
-  bastion_host_key           = "${var.bastion_host_key}"
-  bastion_password           = "${var.bastion_password}"
-  #######
-  dependsOn            = "${module.push_hostfile.dependsOn}"
-}
-
 module "glusterFS" {
   source                  = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.2//config_glusterFS"
   vm_ipv4_address_list    = "${values(var.worker_hostname_ip)}"
@@ -159,7 +137,7 @@ module "glusterFS" {
   bastion_host_key           = "${var.bastion_host_key}"
   bastion_password           = "${var.bastion_password}"
   #######
-  dependsOn               = "${module.NFSClient-Setup.dependsOn}"
+  dependsOn               = "${module.push_hostfile.dependsOn}"
 }
 
 # Adding ICP Node

@@ -131,41 +131,6 @@
         "group_name": "icpinfo"
       },
       {
-        "name": "enable_nfs",
-        "description": "Enabled IBM Cloud Private NFS Server Node",
-        "default": "false",
-        "type": "string",
-        "required": true,
-        "secured": false,
-        "label": "Enabled IBM Cloud Private NFS Server Node",
-        "hidden": false,
-        "immutable": false,
-        "options": [
-            {
-            "value": "true",
-            "label": "true"
-            },
-            {
-            "value": "false",
-            "label": "false",
-            "default": true
-            }
-        ],
-        "group_name": "icpinfo"
-      },
-      {
-        "name": "nfs_server_vm_ipv4_address",
-        "default": ["0.0.0.0"],
-        "description": "NFS Server Node IP Address",
-        "type": "list",
-        "required": true,
-        "secured": false,
-        "label": "NFS Server Node IP Address",
-        "hidden": false,
-        "immutable": false,
-        "group_name": "icpinfo"
-      },
-      {
         "name": "icp_private_ssh_key",
         "description": "IBM Cloud Private - Private SSH key for access between boxes (base64 encoded)",
         "default": "",
@@ -186,45 +151,6 @@
         "secured": false,
         "label": "IBM Cloud Private - Public SSH Key",
         "hidden": true,
-        "immutable": false,
-        "group_name": "icpinfo"
-      },
-      {
-        "name": "master_nfs_folders",
-        "description": "Master Node NFS Directories",
-        "default": [
-            "/var/lib/registry",
-            "/var/lib/icp/audit"
-        ],
-        "type": "list",
-        "required": true,
-        "secured": false,
-        "label": "Master Node NFS Directories",
-        "hidden": true,
-        "immutable": true,
-        "group_name": "icpinfo"
-      },
-      {
-        "name": "nfs_server_folder",
-        "description": "IBM Cloud Private Master Node NFS Folder Name",
-        "default": "/var/nfs",
-        "type": "string",
-        "required": false,
-        "secured": false,
-        "label": "NFS Server Node Server Folder",
-        "hidden": false,
-        "immutable": false,
-        "group_name": "icpinfo"
-      },
-      {
-        "name": "nfs_server_mount_point",
-        "description": "IBM Cloud Private Master Node NFS Mount Name",
-        "default": "/mnt/nfs",
-        "type": "string",
-        "required": false,
-        "secured": false,
-        "label": "NFS Server Node Mount Point",
-        "hidden": false,
         "immutable": false,
         "group_name": "icpinfo"
       },
@@ -393,12 +319,12 @@
       },
       {
         "name": "worker_enable_glusterFS",
-        "description": "Enable / Disable the installation of Gluster File System on new Worker Nodes",
+        "description": "Enable / Disable the installation of Gluster File System on new Nodes (Worker Nodes only)",
         "default": "true",
         "type": "string",
         "required": true,
         "secured": false,
-        "label": "Enable IBM Cloud Private GlusterFS on new Worker Nodes",
+        "label": "Enable IBM Cloud Private GlusterFS on new Nodes (Worker Nodes only)",
         "hidden": false,
         "immutable": false,
         "options": [
@@ -431,7 +357,7 @@
         "type": "string",
         "required": true,
         "secured": false,
-        "label": "New Node Disk Size (GB) - Disk 2 (Gluster FS)",
+        "label": "New Node Disk Size (GB) - Disk 2 (GlusterFS)",
         "hidden": false,
         "immutable": false,
         "group_name": "newnode"
