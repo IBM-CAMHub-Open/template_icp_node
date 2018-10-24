@@ -134,7 +134,7 @@ variable "gluster_volumetype_none" {
 #--------- ICP / Docker Reg--------
 variable "icp_version" {
   type = "string"
-  default = "2.1.0.3"
+  default = "3.1.0"
 }
 
 variable "node_type" {}

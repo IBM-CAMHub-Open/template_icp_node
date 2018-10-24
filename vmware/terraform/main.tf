@@ -129,6 +129,7 @@ module "glusterFS" {
   vm_os_password          = "${var.vm_os_password}"
   boot_vm_ipv4_address    = "${var.boot_vm_ipv4_address}"
   gluster_volumetype_none = "${var.gluster_volumetype_none}"
+  icp_version             = "${var.icp_version}"
   #######
   bastion_host               = "${var.bastion_host}"
   bastion_user               = "${var.bastion_user}"
