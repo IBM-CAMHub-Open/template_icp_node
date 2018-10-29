@@ -178,8 +178,8 @@
         "immutable": false,
         "options": [
             {
-                "value": "management",
-                "label": "Management"
+              "value": "management",
+              "label": "Management"
             },
             {
               "value": "proxy",
@@ -193,7 +193,7 @@
             {
               "value": "va",
               "label": "Vulnerability Advisor (VA)"
-          }            
+            }
         ],
         "group_name": "newnode"
       },
