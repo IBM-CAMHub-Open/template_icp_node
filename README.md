@@ -20,21 +20,25 @@ For more infomation on IBM Cloud Private Nodes, please reference the Knowledge C
 |------|:-------------:|
 | 2.1.0.2| 2.0|
 | 2.1.0.3| 2.1|
+| 3.1.0  | 2.2|
 
-<https://github.com/IBM-CAMHub-Open/template_icp_installer_single>
+<https://github.com/IBM-CAMHub-Open/template_icp_node>
 
 ## System Requirements
 
 ### Hardware requirements
 
 IBM Cloud Private nodes must meet the following requirements:
-<https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0/supported_system_config/hardware_reqs.html>
+<https://www.ibm.com/support/knowledgecenter/en/SSBS6K_3.1.0/supported_system_config/hardware_reqs.html>
 
 This template will setup the following hardware minimum requirements:
 
 | Node Type | CPU Cores | Memory (mb) | Disk 1 | Disk 2 | Number of hosts |
 |------|:-------------:|:----:|:-----:|:-----:|:-----:|
 | Worker  | 16 | 16384 | 200 | 300 | 1 |
+| Management | 4 | 16384 | 200 | n/a | 1 |
+| Proxy | 2 | 8192 | 200 | n/a | 1 |
+| VA | 4 | 8192 | 100 | n/a | 1, 3 or 5 |
 
 ***Notes***
 Disk 1: Base Disk Size on virtual machine
@@ -88,12 +92,12 @@ The following tables list the template variables.
 | vm_dns_suffixes | IBM Cloud Private DNS Suffixes | list | `<list>` |
 | vm_domain | IBM Cloud Private Domain Name | string | `ibm.com` |
 | vm_os_user | Virtual Machine  Template User Name | string | `root` |
-| vm_os_password | Virtual Machine Template User Password | string | `s3cretpassw0rd` |
+| vm_os_password | Virtual Machine Template User Password | string |  |
 | vm_template | Virtual Machine Template Name | string |  |
 | vm_disk1_datastore | Virtual Machine Datastore Name - Disk 1 | string |  |
 | vm_disk2_datastore | Virtual Machine Datastore Name - Disk 2 | string |  |
 
-### IBM Cloud Private add worker node Settings
+### IBM Cloud Private add Worker Node Settings
 
 | Name | Description | Type | Default |
 |------|-------------|:----:|:-----:|
@@ -106,6 +110,30 @@ The following tables list the template variables.
 | worker_vm_ipv4_address | Worker Nodes IP Address's | list | `<list>` |
 | worker_vm_ipv4_gateway |Worker Node IP Gateway  | string |  |
 | worker_vm_ipv4_prefix_length | Worker Node IP Netmask (CIDR) | string | `24` |
+
+### IBM Cloud Private add Management Node Input Settings
+
+| Name | Description | Type | Default |
+|------|-------------|:----:|:-----:|
+| boot_prefix_name | Management Node Hostname Prefix | string | `ICPBoot` |
+| boot_memory |  Management Node Memory Allocation (mb) | string | `16384` |
+| boot_vcpu | Management Node vCPU Allocation | string | `4` |
+| boot_vm_disk1_size | Management Node Disk Size (GB) | string | `200` |
+| boot_vm_ipv4_address | Management Nodes IP Address | list | `<list>` |
+| boot_vm_ipv4_gateway | Management Node IP Gateway | string |  |
+| boot_vm_ipv4_prefix_length | Management Node IP Netmask (CIDR) | string | `24` |
+
+### IBM Cloud Private add Proxy Node Input Settings
+
+| Name | Description | Type | Default |
+|------|-------------|:----:|:-----:|
+| proxy_prefix_name | Proxy Node Hostname Prefix | string | `ICPProxy` |
+| proxy_memory | Proxy Node Memory Allocation (mb) | string | `8192` |
+| proxy_vcpu | Proxy Node vCPU Allocation | string | `2` |
+| proxy_vm_disk1_size | Proxy Node Disk Size (GB) | string | `200` |
+| proxy_vm_ipv4_address | Proxy Nodes IP Address's | list | `<list>` |
+| proxy_vm_ipv4_gateway | Proxy Node IP Gateway | string |  |
+| proxy_vm_ipv4_prefix_length | Proxy Node IP Netmask (CIDR)  | string | `24` |
 
 ## Template Output Variables
 

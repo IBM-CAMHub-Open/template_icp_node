@@ -109,7 +109,20 @@
       {
         "name": "icp_version",
         "description": "IBM Cloud Private Version Number",
-        "default": "2.1.0.3",
+        "options": [{
+            "value": "3.1.0",
+            "label": "3.1.0",
+            "default": "true"
+          },
+          {
+            "value": "2.1.0.3",
+            "label": "2.1.0.3"
+          },
+          {
+            "value": "2.1.0.2",
+            "label": "2.1.0.2"
+          }
+        ],
         "type": "string",
         "required": true,
         "secured": false,
@@ -121,7 +134,7 @@
       {
         "name": "cluster_location",
         "description": "IBM Cloud Private Cluster Folder",
-        "default": "/root/ibm-cloud-private-x86_64-2.1.0.3/cluster",
+        "default": "/root/ibm-cloud-private-x86_64-3.1.0/cluster",
         "type": "string",
         "required": true,
         "secured": false,
