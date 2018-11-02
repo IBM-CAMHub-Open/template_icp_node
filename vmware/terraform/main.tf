@@ -70,6 +70,7 @@ module "deployVM_new_worker" {
   vm_disk2_keep_on_remove    = "${var.worker_vm_disk2_keep_on_remove}"
   vm_dns_servers             = "${var.vm_dns_servers}"
   vm_dns_suffixes            = "${var.vm_dns_suffixes}"
+  vm_clone_timeout           = "${var.vm_clone_timeout}"
   random                     = "${random_string.random-dir.result}"
   #######
   bastion_host               = "${var.bastion_host}"

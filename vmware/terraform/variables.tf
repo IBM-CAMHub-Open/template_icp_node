@@ -140,3 +140,8 @@ variable "icp_version" {
 variable "node_type" {}
 
 variable "cluster_location" {}
+
+variable "vm_clone_timeout" {
+  description = "The timeout, in minutes, to wait for the virtual machine clone to complete."
+  default = "30"
+}
