@@ -36,7 +36,7 @@ resource "null_resource" "create-temp-random-dir" {
 }
 
 module "deployVM_new_worker" {
-  source = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.2//openstack_provision"
+  source = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.3//openstack_provision"
 
   #######
   count                             = "${length(keys(var.worker_hostname_ip))}"
@@ -70,7 +70,7 @@ module "deployVM_new_worker" {
 }
 
 module "icp_prereqs" {
-  source               = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.2//config_icp_prereqs"
+  source               = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.3//config_icp_prereqs"
   private_key          = "${length(var.icp_private_ssh_key) == 0 ? "${tls_private_key.generate.private_key_pem}" : "${var.icp_private_ssh_key}"}"
   vm_os_user           = "${var.vm_os_user}"
   vm_os_password       = "${var.vm_os_password}"
@@ -89,7 +89,7 @@ module "icp_prereqs" {
 }
 
 module "push_hostfile" {
-  source               = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.2//config_hostfile"
+  source               = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.3//config_hostfile"
   private_key          = "${length(var.icp_private_ssh_key) == 0 ? "${tls_private_key.generate.private_key_pem}" : "${var.icp_private_ssh_key}"}"
   vm_os_user           = "${var.vm_os_user}"
   vm_os_password       = "${var.vm_os_password}"
@@ -108,7 +108,7 @@ module "push_hostfile" {
 }
 
 module "glusterFS" {
-  source                  = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.2//config_glusterFS"
+  source                  = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.3//config_glusterFS"
   vm_ipv4_address_list    = "${values(var.worker_hostname_ip)}"
   vm_ipv4_address_str     = "${join(" ", values(var.worker_hostname_ip))}"
   enable_glusterFS        = "${var.node_type == "worker" && var.worker_enable_glusterFS}"
@@ -131,7 +131,7 @@ module "glusterFS" {
 
 # Adding ICP Node
 module "Add_ICP_Node" {
-  source = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.2//config_add_node"
+  source = "git::https://github.com/IBM-CAMHub-Open/template_icp_modules.git?ref=2.3//config_add_node"
   icp_version = "${var.icp_version}"
   boot_node_IP = "${var.boot_vm_ipv4_address}"
   new_node_IPs = "${values(var.worker_hostname_ip)}"
