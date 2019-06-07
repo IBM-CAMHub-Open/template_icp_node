@@ -18,9 +18,7 @@ For more infomation on IBM Cloud Private Nodes, please reference the Knowledge C
 
 | ICP Version | GitTag Reference|
 |------|:-------------:|
-| 2.1.0.3| 1.0|
-| 3.1.0  | 1.0|
-| 3.1.1  | 1.1|
+| 3.1.2  | 3.1.2|
 
 <https://github.com/IBM-CAMHub-Open/template_icp_node>
 
