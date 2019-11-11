@@ -1,4 +1,5 @@
 {
+    "terraform_engine": "~> 0.11.0",
     "input_datatypes": [
       {
         "name": "bastionhost",
@@ -109,36 +110,19 @@
       {
         "name": "icp_version",
         "description": "IBM Cloud Private Version Number",
-        "options": [{
-          "value": "3.1.1",
-          "label": "3.1.1",
-          "default": "true"
-          },
-          {
-            "value": "3.1.0",
-            "label": "3.1.0"
-          },
-          {
-            "value": "2.1.0.3",
-            "label": "2.1.0.3"
-          },
-          {
-            "value": "2.1.0.2",
-            "label": "2.1.0.2"
-          }
-        ],
+		"default": "3.2.1",
         "type": "string",
         "required": true,
         "secured": false,
         "label": "IBM Cloud Private Version",
-        "hidden": false,
+        "hidden": true,
         "immutable": false,
         "group_name": "icpinfo"
       },
       {
         "name": "cluster_location",
         "description": "IBM Cloud Private Cluster Folder",
-        "default": "/root/ibm-cloud-private-x86_64-3.1.0/cluster",
+        "default": "/root/ibm-cloud-private-x86_64-3.2.1/cluster",
         "type": "string",
         "required": true,
         "secured": false,
@@ -327,12 +311,12 @@
         "immutable": false,
         "options": [
           {
-            "workerlue": "true",
+            "value": "true",
             "label": "true",
             "default": true
           },
           {
-            "workerlue": "false",
+            "value": "false",
             "label": "false"
           }
         ],
